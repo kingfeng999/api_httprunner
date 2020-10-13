@@ -1,0 +1,14 @@
+
+name: token 关联的登录接口（通过 extract 提取数据）
+base_url: http://192.168.0.13:8080/
+variables:
+    username: admin
+    pwd: 1234
+request:
+    url: /pinter/bank/api/login2
+    method: POST
+    data:
+        userName: $username
+        password: $pwd
+validate:
+    - eq: ["status_code", 200]

@@ -1,0 +1,29 @@
+
+name: mtx 提交订单接口
+
+# 变量引用
+variables:
+    # 调用 .env 文件中定义的全局变量
+    accounts: ${ENV(USERNAME)}
+    pwd: ${ENV(PASSWORD)}
+
+base_url: ${ENV(BASE_URL)}
+
+# 接口请求
+request:
+    url: /mtx/index.php?s=/index/buy/add.html
+    method: POST
+    headers:
+        X-Requested-With: 'XMLHttpRequest'
+    data:
+        goods_id: 1
+        stock: 2
+        buy_type: goods
+        address_id: 600
+        payment_id: 1
+        spec: ''
+
+# 断言
+validate:
+    - eq: ["status_code", 200]
+    - contains: [content.msg, 提交成功]

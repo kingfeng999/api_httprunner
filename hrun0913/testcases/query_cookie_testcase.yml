@@ -1,0 +1,15 @@
+
+config:
+    name: cookie 关联的查询余额的接口测试
+
+teststeps:
+-
+    name: 登录成功的测试请求
+    api: api/login_cookie.yml
+-
+    name: 查询余额接口自动化测试
+    api: api/query_cookie.yml
+
+    # 断言
+    validate:
+        - ==: [content.message, success]

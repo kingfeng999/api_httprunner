@@ -1,0 +1,10 @@
+
+config:
+    name: 登录接口参数化套件
+
+testcases:
+-
+    name: 登录接口参数化
+    testcase: testcases/login_testcase.yml
+    parameters:
+        title-accounts-pwd-expect: ${P(data/login.csv)}

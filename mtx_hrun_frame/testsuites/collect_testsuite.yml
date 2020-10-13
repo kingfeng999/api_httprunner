@@ -1,0 +1,8 @@
+
+config:
+    name: 买家收货接口的测试套件
+
+testcases:
+-
+    name: 买家收货接口
+    testcase: testcases/collect_testcase.yml

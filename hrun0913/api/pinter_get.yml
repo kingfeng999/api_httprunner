@@ -1,0 +1,15 @@
+
+name: pinter的get接口
+base_url: http://192.168.0.13:8080/
+skip: pinter get 接口的功能不全，跳过测试
+variables:
+    value: 1
+    message: success
+request:
+    url: pinter/com/getSku
+    method: GET
+    params:
+        id: $value
+validate:
+    - eq: ["status_code", 200]
+    - eq: [content.message, $message]

@@ -1,0 +1,8 @@
+
+config:
+    name: 提交订单测试套件
+
+testcases:
+-
+    name: 买家提交订单
+    testcase: testcases/order_testcase.yml

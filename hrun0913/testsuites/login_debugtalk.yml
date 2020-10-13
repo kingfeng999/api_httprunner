@@ -1,0 +1,13 @@
+
+config:
+    name: 登录参数化的套件
+testcases:
+-
+    name: 登录的参数化
+    testcase: testcases/login_testcase.yml
+    parameters:
+        title-username-password-message: ${get_params()}
+
+
+
+

@@ -1,0 +1,14 @@
+
+name: 支付的接口
+
+#base_url: ${ENV(BASE_URL)}
+
+# 接口请求
+request:
+    url: $location
+    method: GET
+
+# 断言
+validate:
+    - eq: ["status_code", 200]
+    - contains: [content, 支付成功]

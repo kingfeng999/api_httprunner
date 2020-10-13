@@ -1,0 +1,10 @@
+config:
+    name: 提交订单接口测试用例
+
+teststeps:
+-
+    name: 调用成功登录的接口
+    api: api/login_api.yml
+-
+    name: 提交订单的接口
+    api: api/order_api.yml

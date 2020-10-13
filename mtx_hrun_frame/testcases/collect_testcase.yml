@@ -1,0 +1,38 @@
+config:
+    name: 买家收货接口测试用例
+
+# 买家收货业务流：
+# 用户登录--提交订单--用户支付--卖家登录系统--卖家发货--买家收货
+teststeps:
+-
+    name: 调用成功登录的接口
+    api: api/login_api.yml
+-
+    name: 提交订单的接口
+    api: api/order_api.yml
+    # 从响应值中提取 jump_url 值
+    # 从响应值中提取相关字段（提供给卖家发货使用）
+    extract:
+        - jump_url: content.data.jump_url
+        - order_id: content.data.order.id
+        - user_id: content.data.order.user_id
+-
+    name: 调用 302 接口
+    api: api/302_api.yml
+    # 从响应头中提取 location 值
+    extract:
+        - location: headers.location
+-
+    name: 调用支付接口
+    api: api/pay_api.yml
+
+-
+    name: 调用管理员登录的接口
+    api: api/admin_api.yml
+-
+    name: 调用卖家发货的接口
+    api: api/deli_api.yml
+-
+    name: 调用买家收货接口
+    api: api/collect_api.yml
+

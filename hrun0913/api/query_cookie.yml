@@ -1,0 +1,12 @@
+
+name: cookie 关联的查询余额接口
+base_url: http://192.168.0.13:8080/
+variables:
+    username: admin
+request:
+    url: /pinter/bank/api/query
+    method: GET
+    params:
+        userName: $username
+validate:
+    - eq: ["status_code", 200]

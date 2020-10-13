@@ -1,0 +1,22 @@
+config:
+    name: 支付接口测试用例
+
+teststeps:
+-
+    name: 调用成功登录的接口
+    api: api/login_api.yml
+-
+    name: 提交订单的接口
+    api: api/order_api.yml
+    # 从响应值中提取 jump_url 值
+    extract:
+        - jump_url: content.data.jump_url
+-
+    name: 调用 302 接口
+    api: api/302_api.yml
+    # 从响应头中提取 location 值
+    extract:
+        - location: headers.location
+-
+    name: 调用支付接口
+    api: api/pay_api.yml

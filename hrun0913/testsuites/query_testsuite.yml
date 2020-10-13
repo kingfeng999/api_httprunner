@@ -1,0 +1,10 @@
+
+# （通过 extract 提取数据实现）
+config:
+    name: token 登录后查询余额参数化的套件
+testcases:
+-
+    name: 余额查询的参数化
+    testcase: testcases/query_token_testcase.yml
+
+

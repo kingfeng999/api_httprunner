@@ -1,0 +1,24 @@
+
+config:
+    name: 登录参数化的套件
+testcases:
+-
+    name: 登录的参数化
+    testcase: testcases/login_testcase.yml
+    parameters:
+        # 如下是第一种参数化方式，比较原始的参数化
+#        title-username-password-message:
+#            - ['正常登录','admin','1234','success']
+#            - ['密码为空','admin','','用户名和密码不能为空']
+#            - ['用户名为空','','1234','用户名和密码不能为空']
+#            - ['用户名和密码为空','','','用户名和密码不能为空']
+
+        # 第二种参数化方式，通过 csv 文件（通过创建 data 文件夹，在工程下创建 csv 文件）
+        # 注意，此方式下，dsv文件的字符串数据不用加""表示，否则报错,httprunner会自动识别
+        title-username-password-message: ${P(data/data.csv)}
+
+
+#        title-username-password-message:
+#        title-username-password-message:
+
+

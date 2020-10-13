@@ -1,0 +1,21 @@
+
+name: 卖家发货接口
+
+base_url: ${ENV(BASE_URL)}
+
+# 接口请求
+request:
+    url: /mtx/admin.php?s=/order/delivery.html
+    method: POST
+    headers:
+        X-Requested-With: 'XMLHttpRequest'
+    # id 和 user_id 都是从提交订单接口的响应值里面获取
+    data:
+        express_number: 2313531     # 快递单号（随便写）
+        id: $order_id               # 订单 id
+        express_id: 1               # 快递 id
+        user_id: $user_id           # 用户 id
+
+# 断言
+validate:
+    - eq: ["status_code", 200]

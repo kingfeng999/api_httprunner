@@ -1,0 +1,14 @@
+
+name: md5 加密的接口
+variables:
+    var1: value1
+    var2: value2
+request:
+    url: http://192.168.0.13:8080/pinter/com/userInfo
+    method: POST
+    headers:
+        Content-Type: "application/json"
+    json: ${sign()}
+
+validate:
+    - eq: ["status_code", 200]

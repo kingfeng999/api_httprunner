@@ -1,0 +1,19 @@
+
+name: 买家收货接口
+
+base_url: ${ENV(BASE_URL)}
+
+# 接口请求
+request:
+    url: /mtx/admin.php?s=/order/collect.html
+    method: POST
+    headers:
+        X-Requested-With: 'XMLHttpRequest'
+    # id 和 value 都是从提交订单接口的响应值里面获取
+    data:
+        id: $order_id             # 订单 id
+        value: $user_id           # 用户 id
+
+# 断言
+validate:
+    - eq: ["status_code", 200]

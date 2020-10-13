@@ -1,0 +1,13 @@
+
+name: pinter的register接口
+base_url: http://192.168.0.13:8080/
+variables:
+    username: admin
+    pwd: 1234
+    message: success
+request:
+    url: /pinter/com/register
+    method: POST
+    json: {"userName":"test","password":"1234","gender":1,"phoneNum":"110","email":"beihe@163.com","address":"Beijing"}
+validate:
+    - eq: ["status_code", 200]

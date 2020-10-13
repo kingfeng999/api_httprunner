@@ -1,0 +1,17 @@
+
+name: 管理员登录接口（卖家登录）
+base_url: ${ENV(BASE_URL)}
+
+# 接口请求
+request:
+    url: /mtx/admin.php?s=/admin/login.html
+    method: POST
+    headers:
+        X-Requested-With: 'XMLHttpRequest'
+    data:
+        username: shamo
+        login_pwd: 123456
+
+# 断言
+validate:
+    - eq: ["status_code", 200]

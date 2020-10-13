@@ -1,0 +1,21 @@
+
+name: 买家评论接口
+
+base_url: ${ENV(BASE_URL)}
+
+# 接口请求
+request:
+    url: /mtx/admin.php?s=/index/order/commentssave.html
+    method: POST
+    headers:
+        X-Requested-With: 'XMLHttpRequest'
+    # id 和 goods_id 都是从提交订单接口的响应值里面获取
+    data:
+        rating[]: 5                          # 评论等级，5星好评
+        content[]: 非常好的东西，值得购买        # 买家评论
+        goods_id: 1                          # 商品 id
+        id: $order_id                        # 订单 id
+
+# 断言
+validate:
+    - eq: ["status_code", 200]

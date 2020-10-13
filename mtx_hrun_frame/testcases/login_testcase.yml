@@ -1,0 +1,7 @@
+config:
+    name: 登录接口测试用例
+
+teststeps:
+-
+    name: $title
+    api: api/login_api.yml

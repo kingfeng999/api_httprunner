@@ -1,0 +1,26 @@
+
+name: mtx 登录接口
+
+# 变量引用
+variables:
+    # 调用 .env 文件中定义的全局变量
+    accounts: ${ENV(USERNAME)}
+    pwd: ${ENV(PASSWORD)}
+    expect: 登录成功    # 此行代码为了保证单独 api 一定能登录成功，与 csv 文件不互相干扰
+
+base_url: ${ENV(BASE_URL)}
+
+# 接口请求
+request:
+    url: /mtx/index.php?s=/index/user/login.html
+    method: POST
+    headers:
+        X-Requested-With: 'XMLHttpRequest'
+    data:
+        accounts: $accounts
+        pwd: $pwd
+
+# 断言
+validate:
+    - eq: ["status_code", 200]
+    - eq: [content.msg, $expect]

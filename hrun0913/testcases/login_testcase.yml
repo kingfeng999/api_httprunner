@@ -1,0 +1,10 @@
+
+config:
+    name: 登录的测试用例
+
+teststeps:
+-
+    name: $title
+    api: api/pinter_login.yml
+
+

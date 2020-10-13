@@ -1,0 +1,8 @@
+
+config:
+    name: 管理员登录接口的测试套件
+
+testcases:
+-
+    name: 管理员登录接口
+    testcase: testcases/admin_testcase.yml

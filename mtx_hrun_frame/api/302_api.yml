@@ -1,0 +1,16 @@
+
+name: 302 的接口
+
+#base_url: ${ENV(BASE_URL)}
+
+# 接口请求
+request:
+    # 获取提交订单后的 jump_url 值
+    url: $jump_url
+    method: GET
+    allow_redirects: False   # 禁止跳转
+
+
+# 断言
+validate:
+    - eq: ["status_code", 302]

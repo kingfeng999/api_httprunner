@@ -1,0 +1,28 @@
+
+# 接口用例名称
+name: pinter的post接口
+
+# 接口基础 url
+base_url: http://192.168.0.13:8080/
+
+# 如果让测试用例重复运行多次，用 times 来定义，如下
+times: 6
+
+# 定义变量
+variables:
+    username: $username
+    pwd: $password
+    message: $message
+
+# 接口请求信息
+request:
+    url: /pinter/com/login
+    method: POST
+    data:
+        userName: $username
+        password: $pwd
+
+# 断言
+validate:
+    - eq: ["status_code", 200]
+    - ==: [content.message, $message]

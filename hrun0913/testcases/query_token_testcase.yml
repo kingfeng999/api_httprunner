@@ -1,0 +1,32 @@
+
+config:
+    name: token 关联的查询余额的接口测试通过 extract 提取数据）
+    setup_hooks:
+        - ${hook_up()}
+    teardown_hooks:
+        - ${hook_down()}
+teststeps:
+-
+    name: 登录成功的测试请求
+    api: api/login_token_extract.yml
+    # 从响应中获取 token 的值，content 是 httprunner 固定获取响应值的关键字
+    extract:
+        - token: content.data
+    setup_hooks:
+        - ${hook_log(--------测试1开始--------)}
+    teardown_hooks:
+        - ${hook_log(--------测试1结束--------)}
+-
+    name: 查询余额接口自动化测试
+    api: api/query_token_extract.yml
+    # 通过变量关联 tonken 值，并赋值给 token（这一步可省略）
+    variables:
+        token: $token
+
+    # 断言
+    validate:
+        - ==: [content.message, success]
+    setup_hooks:
+        - ${hook_log(--------测试2开始--------)}
+    teardown_hooks:
+        - ${hook_log(--------测试2结束--------)}

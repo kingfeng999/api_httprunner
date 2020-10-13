@@ -1,0 +1,8 @@
+
+config:
+    name: 卖家发货接口的测试套件
+
+testcases:
+-
+    name: 卖家发货接口
+    testcase: testcases/deli_testcase.yml
